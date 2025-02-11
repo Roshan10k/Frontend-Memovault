@@ -1,0 +1,49 @@
+.py-5 h2 {
+  color: white !important;
+  font-family: 'Lato';
+  font-size: 40px !important;
+}
+
+
+
+#services .card {
+  border-radius: 15px !important;
+  overflow: hidden;
+  transition: transform 0.3s ease-in-out;
+  background-color: #29353f !important;
+  color: white !important;
+  width: 100%; 
+  max-width: 350px; 
+  margin: 0 auto; 
+  height: 400px; 
+  animation: slideIn 3s ease-in-out ;
+}
+
+/* Adjust text and image positioning */
+#services .card .card-body {
+  padding: 20px; 
+}
+
+/* Image scaling */
+#services .card img {
+  height: 250px; 
+  object-fit: cover; 
+}
+
+
+#services .card:hover {
+  transform: scale(1.05) !important;
+}
+
+
+
+  
+.py-5{
+  background-color: #1e2830;
+  padding-left: 50px !important;
+  
+  
+ 
+}
+
+
