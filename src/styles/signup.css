@@ -1,0 +1,232 @@
+/* General Styles */
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #f4f6f9; /* Light gray background */
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  font-family: 'Lato', sans-serif;
+}
+
+/* Signup Page Layout */
+.signup-page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: calc(100vh - 150px);
+  width: 100%;
+  padding: 40px 20px;
+  box-sizing: border-box;
+  background:linear-gradient(to  bottom right,#000000,#737373);
+}
+
+/* Signup Container */
+.signup-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(to bottom right , #2c3e50,#bdc3c7) !important;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  overflow: hidden;
+  width: 850px;
+  max-width: 100%;
+}
+
+/* Left Side (Image + Branding) */
+.signup-left {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  
+  color: white;
+  width: 400px;
+  height: 600px;
+  text-align: center;
+  
+  
+}
+
+.signup-picture{
+  
+  animation: zoomInOut 2s ease-in;
+  margin-bottom: 0% !important;
+ 
+ 
+
+}
+
+
+
+.signup-title {
+  margin-top: 0%;
+  font-size: 32px;
+  font-weight: bold;
+  margin-bottom: 5px;
+  text-align: center;
+  color: white;
+  font-family: 'lato';
+}
+
+
+
+.signup-tagline {
+  font-size: 18px;
+  color: black;
+  text-align: center;
+  font-weight: 500;
+  animation: slideIn 3s ease-out;
+  font-family: 'lato';
+}
+
+
+/* Right Side (Form Section) */
+.signup-right {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #ffffff;
+  width: 450px;
+  height: 600px;
+  padding: 20px;
+  background-color: #272f36;
+  
+}
+
+/* Signup Box */
+.signup-box {
+    width: 100%;
+    max-width: 400px;
+    background: linear-gradient(to bottom right , #2c3e50,#bdc3c7) !important;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 2px 4px 10px rgba(0, 0, 0, 0.15);
+    animation: slideIn 1s ease-out;
+}
+
+.signup-box h2 {
+  font-size: 28px;
+  text-align: center;
+  margin-bottom: 10px !important;
+}
+
+/* Form Styling */
+.signup-box form {
+  display: flex;
+  flex-direction: column;
+  
+}
+
+.signup-box label {
+  font-weight: bold;
+  color: white;
+  text-align: left;
+  margin-bottom: 5px;
+  font-family: 'lato';
+}
+
+.signup-box input {
+  width: 100%;
+  padding: 12px;
+  border-radius: 5px;
+  border: 1px solid #97af99;
+  background-color: #f4f4f4;
+  font-size: 16px;
+  transition: 0.3s;
+  margin-bottom: 10px !important;
+  color: black;
+
+}
+
+.signup-box input:focus {
+  outline: none;
+  border-color: #009688;
+  background-color: white;
+}
+
+/* Signup Button */
+.signup-button {
+  width: 50% !important;
+  margin: 0 auto;
+  border-radius: 6px;
+  background-color: #009688;
+  color: white;
+  font-weight: bold;
+  font-family: 'Lato';
+  border: none;
+  padding: 12px;
+  cursor: pointer;
+  margin-top: 15px;
+  transition: background-color 0.3s ease-in-out;
+}
+
+.signup-button:hover {
+  background-color: #00796B;
+}
+
+/* Login Link */
+.login-link {
+  margin-top: 15px;
+  font-size: 16px;
+  text-align: center;
+  font-family: 'Segoe UI', Tahoma, Verdana, sans-serif;
+}
+
+.login-link a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  font-family: 'lato';
+  font-size: large;
+}
+
+.login-link a:hover {
+ 
+  color:red;
+}
+
+.login-question {
+  color: black;
+  font-family: 'Lato';
+  font-size: 15px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .signup-container {
+    flex-direction: column;
+    width: 90%;
+    height: auto;
+  }
+
+  .signup-left,
+  .signup-right {
+    width: 100%;
+    height: auto;
+    padding: 20px;
+  }
+
+  .signup-left {
+    border-radius: 8px 8px 0 0;
+  }
+
+  .signup-right {
+    border-radius: 0 0 8px 8px;
+    border-left: none;
+    border-top: 3px solid #1a5ca0;
+  }
+}
+
+/* Footer */
+footer {
+  background-color: #1a5ca0;
+  color: white;
+  text-align: center;
+  padding: 10px 0;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+}
