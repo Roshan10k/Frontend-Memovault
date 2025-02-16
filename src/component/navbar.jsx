@@ -7,7 +7,7 @@ import NavDropdown from 'react-bootstrap/NavDropdown';
 import "../styles/navbar.css";
 import logo from '../assets/logo.png'; 
 import profileImage from '../assets/profile.png'; 
-import AboutUsSection from './AboutUsSection';
+import AboutUsSection from './ServicesSection';
 
 export default class NavbarComponent extends Component {
   
@@ -31,11 +31,11 @@ export default class NavbarComponent extends Component {
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="me-auto">
-              <Nav.Link as={Link} to="/">Home</Nav.Link>
+              <Nav><a href="/">Home</a></Nav>
               
 
              
-              <NavDropdown title="Services" id="basic-nav-dropdown">
+              <NavDropdown className="services" title="Services" id="basic-nav-dropdown">
                 <NavDropdown.Item href="/#services">Memories Capsule</NavDropdown.Item>
                 <NavDropdown.Item href="/#services">Letter to Futureself</NavDropdown.Item>
                 <NavDropdown.Item href="/#services">Bucket-List</NavDropdown.Item>
@@ -46,9 +46,9 @@ export default class NavbarComponent extends Component {
                 <a href="/#contact">Contact</a></Nav>
             </Nav>
             <Nav className="ms-auto">
-              <Nav.Link as={Link} to='/login'>
-                <button className="getstarted-button">Get Started</button>
-              </Nav.Link>
+              <Nav>
+                <a href='/login'><button className="getstarted-button">Get Started</button></a>
+              </Nav>
             </Nav>
           </Navbar.Collapse>
         </Container>

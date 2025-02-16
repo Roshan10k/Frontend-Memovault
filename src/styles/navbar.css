@@ -5,6 +5,8 @@
     margin-top: 0;
     width: 100%;
     z-index: 1000;
+    position: sticky !important;
+    top: 0;
    
   }
 
@@ -18,6 +20,7 @@
     transition: color 0.3s ease-in-out;
     display: inline;
     margin-left: 0;
+    
   }
 
   
@@ -74,6 +77,21 @@
     width: 100%;
     background-color: #272f36;
   }
+   .me-auto a{
+    text-decoration: none;
+    font-family: 'lato';
+    font-weight: 800;
+    font-size: 18px;
+    color: white;
+   }
+
+   .me-auto a:hover{
+    color: #128b8b;
+   }
+
+   .services:hover{
+    background: transparent !important;
+   }
 
   .getstarted-button {
     background-color: #128b8b !important;
