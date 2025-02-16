@@ -1,0 +1,17 @@
+
+
+.navbar-custom {
+  background-color: #272f36; 
+  position: relative;
+  z-index: 10;
+}
+
+
+
+.footer {
+  background-color: #1e2830;
+  padding: 20px 0;
+  text-align: center;
+  position: relative;
+}
+
