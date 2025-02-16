@@ -1,0 +1,417 @@
+/* Base styles */
+html, body {
+  height: 100%;
+  margin: 0;
+  overflow: auto;
+}
+
+.memories__container {
+  height: 100vh; 
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto; 
+  padding: 20px;
+  scrollbar-width: thin; 
+  scrollbar-color: rgba(255, 255, 255, 0.5) transparent; 
+  align-items: center;
+  gap: 10px;
+}
+
+
+
+/* Memory list and cards */
+.memories__list {
+  display: grid;
+  flex-direction: row !important;
+  flex-wrap: wrap;
+  width: 100%;
+  margin-top: 0;
+  padding: 0 20px;
+  align-items: flex-start;
+  
+}
+
+.memories__add-card {
+  flex: 1 1 calc(33.33% - 20px) !important; 
+  width: 20%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-left: 40%;
+  margin-bottom: 20px;
+  background: linear-gradient(to bottom right, #2c3e50, #bdc3c7) !important;
+  padding: 15px;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: transform 0.3s ease-in-out;
+}
+
+.memories__add-card h2 {
+  font-size: 1.2rem !important;
+  font-weight: 500;
+  font-family: 'Lato';
+  margin-bottom: 20px;
+  color: white !important;
+  text-align: center;
+}
+
+.memories__add-card:hover {
+  transform: scale(1.05);
+}
+
+.memories__plus {
+  font-size: 50px;
+  font-weight: bold;
+  margin-bottom: 10px;
+  transition: color 0.3s ease;
+}
+
+.memories__plus:hover {
+  color: #128b8b;
+}
+
+/* Memory card styles */
+.memories__card {
+  width: 250px;
+  background-color: #f8f9fa;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin: 10px;
+  padding: 15px;
+  text-align: center;
+  border-radius: 8px;
+  transition: transform 0.2s ease;
+}
+
+.memories__card:hover {
+  transform: translateY(-10px);
+}
+
+.memories__card h3 {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: rgb(220, 202, 104) !important;
+  margin: 10px ;
+  font-family: 'lato';
+}
+
+.memories__card p {
+  font-size: 0.9rem;
+  color:#E0FFFF;
+  margin: 10px 0;
+  font-weight: 700;
+  
+}
+
+.memories__card img {
+  max-width: 250px;
+  max-height: 150px;
+  border-radius: 4px;
+  margin-bottom: 10px;
+}
+
+/* Cards container (if you need to constrain size) */
+
+
+/* Overriding memory card for a different look */
+.memories__card {
+  background:linear-gradient(135deg, #2A3439, #008080);
+  width: 300px !important;
+  height: 300px;
+}
+
+.memories__cards {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+}
+
+.memories__card {
+  width: calc(33.33% - 20px); /* 3 in a row */
+  min-width: 250px;
+}
+
+/* Form styles */
+.memories__form {
+  width: 100%;
+  max-width: 400px;
+  background: linear-gradient(to bottom right, #2c3e50, #bdc3c7) !important;
+  color: white;
+  padding: 18px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  position: relative;
+  transform: translateX(-20px);
+  opacity: 0;
+  transition: all 0.3s ease-in-out;
+  flex-shrink: 0;
+  margin: 20px auto;
+  margin-top: 0; /* Center form */
+}
+
+.memories__form.show {
+  opacity: 1;
+  transform: translateX(0);
+  animation: slideIn 0.8s ease-out;
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateX(-40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.memories__close-btn {
+  position: absolute;
+  top: 15px;
+  right: 25px !important;
+  background: none !important;
+  border: none !important;
+  font-size: 24px;
+  color: white;
+  cursor: pointer;
+  width: 0;
+  height: 0;
+  transition: color 0.3s ease;
+  
+}
+
+.memories__close-btn:hover {
+  color: #ff4d4d !important;
+  
+}
+
+.memories__form h1 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  font-family: 'Lato';
+  margin-bottom: 20px;
+  color: white;
+  text-align: center;
+}
+
+.memories__input-group {
+  display: inline !important;
+  margin-bottom: 5px !important;
+}
+
+.memories__input-group label {
+  display: block;
+  margin-bottom: 0px !important;
+  font-weight: bold;
+  color: white !important;
+  font-family: 'Lato';
+}
+
+.memories__input-group input,
+.memories__input-group textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #576574;
+  border-radius: 4px;
+  font-size: 0.9rem;
+  background-color: #2d3a4a;
+  color: white !important;
+  box-sizing: border-box;
+}
+
+.memories__input-group input:focus,
+.memories__input-group textarea:focus {
+  outline: none;
+  border-color: #128b8b;
+}
+
+.memories__input-group textarea {
+  resize: vertical;
+  min-height: 80px;
+}
+
+.memories__submit-btn {
+  width: 60%;
+  padding: 12px;
+  margin-left: 80px;
+  background-color: #128b8b;
+  color: #ffffff;
+  border: none;
+  border-radius: 4px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+}
+
+.memories__submit-btn:hover {
+  background-color: #0f7272;
+  transform: translateY(-1px);
+}
+
+/* Image preview */
+.memories__image-preview {
+  text-align: left;
+  margin-bottom: 10px;
+}
+
+.memories__image-preview img {
+  max-width: 100px;
+  height: 100px;
+  border-radius: 8px;
+  margin-top: 10px;
+  margin-bottom: 18px;
+}
+
+/* Date and file input customization */
+input[type="date"] {
+  appearance: none;
+  -webkit-appearance: none;
+}
+
+input[type="date"]::-webkit-calendar-picker-indicator {
+  filter: invert(1);
+}
+
+.memories__input-group input[type="file"] {
+  padding: 8px;
+  background-color: #3a4a5c;
+  width: 100%;
+  color: white !important;
+}
+
+
+/* Modal overlay */
+/* memories.css */
+
+/* Modal overlay for memories */
+.memories-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.8) ; /* Darker overlay */
+  display: flex;
+  align-items: center;
+  justify-content: center !important;
+  z-index: 9999; /* High z-index to ensure it's on top */
+}
+
+/* Modal content for memories */
+.memories-modal-content {
+  background: linear-gradient(135deg, #52a268, #e4c27e)!important;
+  padding: 20px;
+  border-radius: 8px;
+  position: relative;
+  width: 90%;
+  max-width: 500px;
+}
+
+/* Close button style for memories modal */
+.memories-close-modal {
+  position: absolute;
+  top: 15px;
+  right: 25px !important;
+  background: none !important;
+  border: none !important;
+  font-size: 24px;
+  color: white;
+  cursor: pointer;
+  width: 0;
+  height: 0;
+  transition: color 0.3s ease;
+  
+}
+
+.memories-close-modal:hover{
+  color: #ff4d4d !important;
+  
+
+}
+
+.memories-modal-content img {
+  max-width: 250px;
+  max-height: 70vh;  /* 80% of viewport height */
+  height: auto;
+  display: block;
+  margin: 0 auto;  /* Center the image */
+  border-radius: 8px;
+}
+
+
+
+
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .memories__container h1 {
+    font-size: 1.8rem;
+  }
+
+  .memories__list {
+    flex-direction: column;
+    padding: 0;
+   
+  }
+
+  .memories__add-card {
+    width: 100%;
+    max-width: 300px;
+    height: 150px;
+  }
+
+  .memories__form {
+    width: 90%;
+    padding: 15px;
+  }
+
+  .memories__input-group input,
+  .memories__input-group textarea {
+    padding: 8px;
+    font-size: 0.9rem;
+  }
+
+  .memories__submit-btn {
+    padding: 10px;
+    font-size: 0.9rem;
+  }
+
+  .memories__card {
+    width: 90%;
+    max-width: 300px;
+  }
+}
+
+@media (max-width: 480px) {
+  .memories__container h1 {
+    font-size: 1.5rem;
+  }
+
+  .memories__add-card {
+    height: 120px;
+    width: 90%;
+  }
+
+  .memories__add-card h2 {
+    font-size: 1.1rem;
+    margin-bottom: 10px;
+  }
+
+  .memories__plus {
+    font-size: 40px;
+  }
+
+  .memories__form h1 {
+    font-size: 1.3rem;
+  }
+
+  .memories__input-group label {
+    font-size: 0.9rem;
+  }
+
+  .memories__image-preview img {
+    max-width: 100%;
+  }
+}
