@@ -1,0 +1,128 @@
+.bucket-list {
+  display: flex;
+  justify-content: space-between;
+  padding: 80px;
+}
+
+/* Bucket-Shaped Containers */
+.todo-box, .done-box {
+  width: 45%;
+  background: linear-gradient(135deg, #bdc3c7, #2c3e50);
+  padding: 20px;
+  color: white;
+  min-height: 300px;
+  font-family: 'Lato', sans-serif;
+  border-radius: 50px 50px 30px 30px;
+  box-shadow: inset 0 -10px 10px rgba(0, 0, 0, 0.3);
+  position: relative;
+}
+
+/* Rim Effect on Buckets */
+.todo-box::before, .done-box::before {
+  content: "";
+  width: 90%;
+  height: 15px;
+  background: rgba(0, 0, 0, 0.2);
+  position: absolute;
+  top: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  border-radius: 50%;
+}
+
+/* Title Styling */
+.todo-box h3, .done-box h3 {
+  font-size: 22px;
+  font-weight: bold;
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+}
+
+/* Icons */
+.todo-box h3 svg, .done-box h3 svg {
+  margin-right: 10px;
+  font-size: 26px;
+  color: #038218;
+}
+
+/* Task Input Box */
+.add-todo input {
+  width: 80%;
+  padding: 10px;
+  border: 2px solid #B0BEC5;
+  border-radius: 8px;
+  background-color: #f4f4f4;
+  color: #2C3E50;
+ 
+}
+
+.add-todo input:focus {
+  outline: none;
+  border-color: #009688;
+  background-color: white;
+}
+
+/* Add Button */
+.add-todo button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 8px;
+  background: #00ff7f;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s;
+  margin-left: 10px;
+  margin-top: 5px;
+  margin-bottom: 10px;
+  width: 20%;
+}
+
+.add-todo button:hover {
+  background: #22dd77;
+  transform: scale(1.05);
+}
+
+/* Draggable Items */
+.bucket-item {
+  background-color: rgb(231, 124, 124);
+  margin-left: 0px;
+  padding: 10px;
+  border-radius: 10px;
+  cursor: pointer;
+  border: none;
+  transition: transform 0.2s;
+  margin-bottom: 10px;
+  animation: slideIn 0.5s ease-in;
+}
+
+.bucket-item:hover {
+  transform: scale(1.05);
+}
+
+/* Completed Items */
+.done-item {
+  background-color: rgb(106, 200, 106);
+  margin: 10px;
+  padding: 10px;
+  border-radius: 10px;
+  border: none;
+  animation: slideIn 0.5s ease-in;
+}
+
+
+.progress-bar {
+  height: 12px;
+  background: #e0e0e0 !important;
+  border-radius: 6px;
+  overflow: hidden;
+  margin-top: 10px;
+  position: relative;
+}
+
+.progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #4CAF50, #2e7d32);
+  transition: width 0.4s ease-in-out;
+}
