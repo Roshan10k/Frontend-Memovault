@@ -1,0 +1,170 @@
+.letter-container {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  height: 100vh;
+  gap: 20px;
+  margin-top: 10px;
+}
+
+.start-card {
+  background: linear-gradient(135deg, #bdc3c7, #2c3e50);
+  padding: 20px;
+  border-radius: 8px;
+  cursor: pointer;
+  text-align: center;
+  font-size: 18px;
+  transition: 0.3s;
+  font-family: 'lato';
+  width:200px;
+  color:white;
+}
+
+.start-card:hover {
+  transform: scale(1.05);
+}
+
+.plus-symbol {
+  font-size: 50px;
+  font-weight: bold;
+  margin-bottom: 10px;
+  transition: color 0.3s ease;
+}
+
+.plus-symbol:hover {
+  color: #128b8b;
+}
+
+.letter-form {
+  background: linear-gradient(135deg, #bdc3c7, #2c3e50);
+  padding: 20px;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  width: 400px;
+  animation: slideIn 1s ease-in-out;
+}
+
+.letter-title,
+.letter-date,
+.letter-content {
+  width: 100%;
+  padding: 8px;
+  font-size: 16px;
+  border-radius: 5px;
+}
+
+.letter-content {
+  height: 150px;
+  resize: none;
+  color: #2c3e50;
+  font-family: "Courier New", Courier, monospace;
+  background: url('../assets/lettertexture.jpg');
+}
+
+.save-button,
+.cancel-button {
+  padding: 10px;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+.save-button {
+  background: #008080;
+  color: white;
+  margin-bottom: 10px;
+}
+
+.cancel-button {
+  background: #d9534f !important;
+  color: white;
+}
+
+.cancel-button:hover{
+  background: #d33a35 !important;
+}
+
+.envelope-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  margin-top: 20px;
+}
+
+.envelope {
+  width: 150px;
+  height: 100px;
+  background: #f8d7a4;
+  position: relative;
+  border: 2px solid #d4a373;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.envelope-flap {
+  width: 100%;
+  height: 40px;
+  background: #e5b676;
+  position: absolute;
+  top: 0;
+  left: 0;
+  clip-path: polygon(0 0, 100% 0, 50% 100%);
+  transition: 0.3s;
+}
+
+.envelope:hover .envelope-flap {
+  transform: rotateX(180deg);
+}
+
+.envelope-body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  font-weight: bold;
+}
+
+.letter-format {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width:fit-content;
+  gap :10px;
+}
+
+.letter-paper {
+  background: #fff3e6;
+  padding: 20px;
+  width: 400px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  font-family: "Courier New", Courier, monospace;
+  line-height: 1.5;
+  border: 2px solid #d4a373;
+ 
+  
+}
+
+.letter-paper h2{
+  color: black !important;
+}
+
+.letter-content-view {
+  white-space: pre-wrap !important;
+  word-wrap: break-word !important; 
+  
+}
+
+.back-button {
+  margin-top: 10px;
+  padding: 10px;
+  border: none;
+  background: #008080;
+  color: white;
+  cursor: pointer;
+  border-radius: 5px
+}
