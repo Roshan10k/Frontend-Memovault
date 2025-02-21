@@ -1,0 +1,162 @@
+/* Sidebar Container */
+.sidebar {
+    background-color: #000;
+    color: #F0E6D2;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 20px;
+    transition: width 0.3s ease;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  /* Logo & Title */
+  .logo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+  
+  .logo img {
+    max-width: 100%;
+    height: auto;
+  }
+  
+  .titlename {
+    margin-top: 10px;
+    font-size: 1.5rem;
+    font-weight: bold;
+  }
+  
+  /* Sidebar Menu */
+  .sidebar-menu {
+    list-style: none;
+    padding: 0;
+    flex-grow: 1;
+    font-family: 'lato';
+    font-size: larger;
+    margin-bottom: 10px;
+  }
+  
+  .sidebar-menu li {
+    margin: 10px 0;
+    display: flex;
+    align-items: center;
+    position: relative;
+    font-size: larger;
+  }
+  
+  /* Link Styling */
+  .sidebar-link {
+    position: relative;
+    text-decoration: none;
+    color: white;
+    font-size: 1rem;
+    font-weight: bold;
+    margin-left: 10px;
+    padding: 8px 12px;
+    border-radius: 8px;
+    font-size: large;
+    margin-bottom: 10px;
+    transition: transform 0.3s ease, color 0.3s ease;
+  }
+  
+
+  .sidebar-link::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 2px;
+    width: 0%;
+    background: #128b8b;
+    transition: width 0.3s ease;
+    border-radius: 2px;
+  }
+  
+
+  .sidebar-link:hover,
+  .sidebar-link.active {
+    transform: translateX(10px);
+    color: #128b8b;
+  }
+  
+  .sidebar-link:hover::before,
+  .sidebar-link.active::before {
+    width: 100%;
+  }
+  
+  /* Profile Container */
+  .profile-container {
+    margin-top: auto;
+  }
+  
+  .profile-container li {
+    margin: 10px 0;
+    padding: 8px 12px;
+    display: flex;
+    align-items: center;
+    border-radius: 8px;
+    transition: background 0.3s ease, transform 0.3s ease, color 0.3s ease;
+    cursor: pointer;
+  }
+  
+  .profile-container li:hover {
+    background: linear-gradient(to right, #000, #737373);
+    color: #128b8b;
+    transform: translateX(10px);
+  }
+  
+  .profile-link .logout-text {
+    margin-left: 10px;
+    font-size: 1rem;
+    font-weight: bold;
+  }
+  
+  /* Modal Button Styles */
+  .modal-footer .btn-secondary {
+    background-color: #6c757d !important;
+    border-color: #6c757d !important;
+    color: white;
+  }
+  
+  .modal-footer .btn-secondary:hover {
+    background-color: #5a6268 !important;
+  }
+  
+  .modal-footer .btn-primary {
+    background-color: #dc3545 !important;
+    border-color: #dc3545 !important;
+  }
+  
+  .modal-footer .btn-primary:hover {
+    background-color: #c82333 !important;
+  }
+  
+  /* Ensuring Modal Logout Link Inherits Button Color */
+  .modal-logout-link {
+    text-decoration: none;
+    color: white;
+  }
+  
+  /* Responsive Styles */
+  @media (max-width: 768px) {
+    .sidebar {
+      width: 200px;
+    }
+    
+    .sidebar-menu li {
+      margin: 8px 0;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .sidebar {
+      width: 100%;
+      position: relative;
+      height: auto;
+    }
+  }
+  
