@@ -10,29 +10,36 @@
   border-radius: 15px !important;
   overflow: hidden;
   transition: transform 0.3s ease-in-out;
-  background-color: #29353f !important;
+  background: linear-gradient(to bottom right, #89f7fe, #66a6ff) !important;
   color: white !important;
+  font-family: 'lato';
   width: 100%; 
   max-width: 350px; 
-  margin: 0 auto; 
-  height: 400px; 
+  margin-bottom: 30px; 
+  height: 350px; 
+  padding: 10px;
   animation: slideIn 3s ease-in-out ;
 }
 
 /* Adjust text and image positioning */
 #services .card .card-body {
   padding: 20px; 
+  color: white !important;
 }
 
 /* Image scaling */
 #services .card img {
-  height: 250px; 
+  height:250px; 
   object-fit: cover; 
 }
 
 
 #services .card:hover {
   transform: scale(1.05) !important;
+}
+
+.card-text{
+  color: rgba(255, 255, 255, 0.784);
 }
 
 

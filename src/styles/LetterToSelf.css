@@ -168,3 +168,29 @@
   cursor: pointer;
   border-radius: 5px
 }
+
+.delete-button {
+  padding: 10px;
+  border: none;
+  background: #d9534f !important;
+  color: white;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.delete-button:hover{
+  background: #d33a35 !important;
+}
+
+.edit-button {
+  background-color: #007bff !important;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.edit-button:hover {
+  background-color: #0056b3 !important;
+}

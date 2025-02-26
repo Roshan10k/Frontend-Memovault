@@ -3,13 +3,13 @@ import { Link } from 'react-router-dom';
 import "../styles/login.css";
 import withRouter from '../utility/withRouter';
 import logo from '../assets/logo.png';
-import { login } from '../Api/Api'; // Import the login API function
+import { login } from '../Api/Api'; 
 
 class LoginComponent extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      email: '', // Changed from username to email
+      email: '', 
       password: '',
       error: '' // For error messages
     };

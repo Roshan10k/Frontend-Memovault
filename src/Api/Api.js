@@ -82,6 +82,9 @@ export const updateMemory = (id, updatedData) =>
 export const deleteMemory = (id) => 
   API.delete(`/memories/delete_memory/${id}`);
 
+export const getRecentMemories = () => 
+  API.get("/memories/recent_memories");
+
 // Bucket List APIs
 export const getBucketList = () => API.get("/bucketlist/items");
 export const addBucketTask = (itemData) => API.post("/bucketlist/items", itemData);
@@ -92,6 +95,7 @@ export const getLetters = () => API.get("/lettertoself/me");
 export const getLetterById = (id) => API.get(`/lettertoself/${id}`);
 export const deleteLetter = (id) => API.delete(`/lettertoself/${id}`);
 export const updateLetter = (id, updatedData) => API.put(`/lettertoself/${id}`, updatedData);
+export const getRecentLetters = () => API.get("/lettertoself/recent");
 
 
 // Yearly Goal APIs
@@ -101,4 +105,23 @@ export const updateYearlyGoal = (id, updatedData) => API.put(`/yearlygoals/goals
 export const completeYearlyGoal = (id) => API.put(`/yearlygoals/goals/${id}/complete`);
 export const addRemarksToGoal = (id, remarks) => API.put(`/yearlygoals/goals/${id}/remarks`, { remarks });
 
+// Achievements APIs
+export const createAchievement = (achievementData) => 
+  API.post("/achievements/create", achievementData);
+
+export const getAchievements = () => 
+  API.get("/achievements");
+
+export const getAchievementById = (id) => 
+  API.get(`/achievements/${id}`);
+
+export const updateAchievement = (id, updatedData) => 
+  API.put(`/achievements/${id}`, updatedData);
+
+export const deleteAchievement = (id) => 
+  API.delete(`/achievements/${id}`);
+
+
 export default API;
+
+

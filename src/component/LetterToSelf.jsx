@@ -1,49 +1,63 @@
 import React, { useState, useEffect } from "react";
-import { createLetter, getLetters, deleteLetter } from "../Api/Api";
+import { createLetter, getLetters, deleteLetter, updateLetter } from "../Api/Api";
 import "../styles/LetterToSelf.css";
 
 const LetterToSelf = () => {
   const [isWriting, setIsWriting] = useState(false);
+  const [isEditing, setIsEditing] = useState(false); // Track if we are editing a letter
   const [title, setTitle] = useState("");
   const [date, setDate] = useState(new Date().toISOString().split("T")[0]);
   const [content, setContent] = useState("");
   const [letters, setLetters] = useState([]);
   const [selectedLetter, setSelectedLetter] = useState(null);
 
-  
-
   useEffect(() => {
-    
-      fetchLetters();
-    
+    fetchLetters();
   }, []);
 
   const fetchLetters = async () => {
     try {
-      const response = await getLetters(); 
+      const response = await getLetters();
       setLetters(response.data);
     } catch (error) {
       console.error("Error fetching letters:", error);
       alert("Failed to fetch letters");
     }
   };
-  const handleSave = async () => {
 
+  const handleSave = async () => {
     if (!content.trim()) {
       alert("Letter content cannot be empty!");
       return;
     }
-    try {
-      await createLetter({ title, date, content });
-      alert("Letter saved successfully!");
-      setIsWriting(false);
-      setTitle("");
-      setDate(new Date().toISOString().split("T")[0]);
-      setContent("");
-      fetchLetters(); // Refresh list
-    } catch (error) {
-      console.error("Error saving letter:", error);
-      alert("Failed to save letter");
+
+    if (isEditing) {
+      // Update the existing letter
+      try {
+        await updateLetter(selectedLetter.id, { title, date, content });
+        alert("Letter updated successfully!");
+        setIsEditing(false);
+        setIsWriting(false);
+        setSelectedLetter(null);
+        fetchLetters(); // Refresh list
+      } catch (error) {
+        console.error("Error updating letter:", error);
+        alert("Failed to update letter");
+      }
+    } else {
+      // Create a new letter
+      try {
+        await createLetter({ title, date, content });
+        alert("Letter saved successfully!");
+        setIsWriting(false);
+        setTitle("");
+        setDate(new Date().toISOString().split("T")[0]);
+        setContent("");
+        fetchLetters(); // Refresh list
+      } catch (error) {
+        console.error("Error saving letter:", error);
+        alert("Failed to save letter");
+      }
     }
   };
 
@@ -59,12 +73,21 @@ const LetterToSelf = () => {
     }
   };
 
+  const handleEdit = (letter) => {
+    setIsEditing(true);
+    setIsWriting(true); // Switch to writing mode
+    setSelectedLetter(letter);
+    setTitle(letter.title);
+    setDate(letter.date);
+    setContent(letter.content);
+  };
+
   return (
     <div className="letter-container">
       <h2>Your Letters</h2>
       {isWriting ? (
         <div className="letter-form">
-          <h2>Write a Letter to Your Future Self</h2>
+          <h2>{isEditing ? "Edit Your Letter" : "Write a Letter to Your Future Self"}</h2>
           <input
             type="text"
             placeholder="Title (optional)"
@@ -84,8 +107,12 @@ const LetterToSelf = () => {
             onChange={(e) => setContent(e.target.value)}
             className="letter-content"
           ></textarea>
-          <button onClick={handleSave} className="save-button">Save Letter</button>
-          <button onClick={() => setIsWriting(false)} className="cancel-button">Cancel</button>
+          <button onClick={handleSave} className="save-button">
+            {isEditing ? "Update Letter" : "Save Letter"}
+          </button>
+          <button onClick={() => setIsWriting(false)} className="cancel-button">
+            Cancel
+          </button>
         </div>
       ) : selectedLetter ? (
         <div className="letter-format">
@@ -96,7 +123,7 @@ const LetterToSelf = () => {
           </div>
           <button onClick={() => handleDelete(selectedLetter.id)} className="delete-button">Delete</button>
           <button onClick={() => setSelectedLetter(null)} className="back-button">Back to Envelopes</button>
-          
+          <button onClick={() => handleEdit(selectedLetter)} className="edit-button">Edit</button> {/* Edit Button */}
         </div>
       ) : (
         <div>

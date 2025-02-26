@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import "../styles/home.css";
 import HomeBackground from '../assets/home.png';
-import AboutUsSection from './AboutUsSection';
+import ServicesSection from './ServicesSection';
 import ContactSection from './contactSection';
 
 export default class Home extends Component {
@@ -25,7 +25,7 @@ export default class Home extends Component {
           </div>
         </div>
 
-        <AboutUsSection/>
+        <ServicesSection/>
       <ContactSection/>
 
         

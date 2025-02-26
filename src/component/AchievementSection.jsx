@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
-import { FaTrophy, FaGraduationCap, FaRunning, FaPlane, FaPiggyBank, FaUsers } from "react-icons/fa";
-import { createAchievement, getAchievements } from "../Api/Api"; // Import the APIs
+import { FaTrophy, FaGraduationCap, FaRunning, FaPlane, FaPiggyBank, FaUsers, FaTimes } from "react-icons/fa";
+import { createAchievement, getAchievements, deleteAchievement } from "../Api/Api"; // Import the APIs
 import '../styles/Achievements.css';
 
 const Achievements = () => {
@@ -13,6 +13,8 @@ const Achievements = () => {
     reflection: "",
   });
   const [showForm, setShowForm] = useState(false); // Toggle form visibility
+  const [showConfirmDialog, setShowConfirmDialog] = useState(false); // To control delete confirmation
+  const [selectedAchievementId, setSelectedAchievementId] = useState(null); // To store ID of selected achievement for deletion
 
   const categories = [
     { name: "Personal Growth", icon: <FaTrophy /> },
@@ -54,6 +56,29 @@ const Achievements = () => {
     }
   };
 
+  const handleDelete = async () => {
+    // Optimistic UI update: Immediately remove the achievement from the list
+    const updatedAchievements = achievements.filter((ach) => ach.id !== selectedAchievementId);
+    setAchievements(updatedAchievements);
+  
+    try {
+      // Perform the delete API call
+      await deleteAchievement(selectedAchievementId);
+      setShowConfirmDialog(false);
+      setSelectedAchievementId(null);
+    } catch (error) {
+      console.error("Failed to delete achievement:", error);
+      // Rollback the optimistic update if the delete fails
+      setAchievements(achievements);
+    }
+  };
+  
+
+  const handleDeleteClick = (id) => {
+    setSelectedAchievementId(id);
+    setShowConfirmDialog(true);
+  };
+
   return (
     <div className="achievements-container">
       <h2>Achievements</h2>
@@ -69,6 +94,11 @@ const Achievements = () => {
                   <div className="achievement-card-header">
                     <div className="achievement-category-icon">{category.icon}</div>
                     <div className="achievement-card-title">{ach.title}</div>
+                    <FaTimes 
+                      className="delete-icon" 
+                      onClick={() => handleDeleteClick(ach.id)} 
+                      style={{ cursor: "pointer" }} 
+                    />
                   </div>
                   <div className="achievement-card-body">
                     <div className="achievement-date">{ach.date}</div>
@@ -105,6 +135,15 @@ const Achievements = () => {
           <textarea name="reflection" placeholder="How did you feel?" value={newAchievement.reflection} onChange={handleChange}></textarea>
           <button type="submit">Add Achievement</button>
         </form>
+      )}
+
+      {/* Confirmation Dialog for Deleting Achievement */}
+      {showConfirmDialog && (
+        <div className="confirmation-dialog">
+          <p>Are you sure you want to delete this achievement?</p>
+          <button onClick={handleDelete}>Yes, Delete</button>
+          <button onClick={() => setShowConfirmDialog(false)}>Cancel</button>
+        </div>
       )}
     </div>
   );

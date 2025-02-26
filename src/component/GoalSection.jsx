@@ -167,13 +167,7 @@ const CompletedGoalCard = ({ goal, onRemarksChange, onToggleComplete }) => (
   <div className="goal-card completed">
     <div className="card-header">
       <h4>{goal.month}</h4>
-      <button 
-        className="toggle-btn complete"
-        onClick={() => onToggleComplete(goal.id)}
-        aria-label="Mark as incomplete"
-      >
-        ✓
-      </button>
+     
     </div>
     <div className="completed-goal">{goal.goal}</div>
     <textarea

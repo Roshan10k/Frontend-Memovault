@@ -4,7 +4,7 @@ import "../styles/services.css";
 import capsuleImg from "../assets/memoriesCapsules.png";
 import letterImg from "../assets/letteroffuture.png";
 import bucketListImg from "../assets/bucketlist.png";
-import achievementsImg from "../assets/achievements.png";g
+import achievementsImg from "../assets/achievements.png";
 import goalsImg from "../assets/yearlygoals.png";
 
 const services = [
