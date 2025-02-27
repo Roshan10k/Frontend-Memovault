@@ -13,7 +13,11 @@ const Sidebar = () => {
   const handleShowModal = () => setShowModal(true);
   const handleCloseModal = () => setShowModal(false);
   const handleLogout = () => {
-    // Perform logout logic here (e.g., clear tokens, etc.)
+    localStorage.removeItem("authToken"); 
+   sessionStorage.removeItem("authToken"); 
+
+  // Redirect to the login page
+  window.location.href = "/login"
     setShowModal(false);
   };
 

@@ -58,7 +58,7 @@ export default class ForgotPasswordSection extends Component {
                 <input 
                   type="email" 
                   id="email"
-                  name="email"  // FIXED: Added name attribute
+                  name="email"  
                   placeholder="Enter your email" 
                   value={email}
                   onChange={this.handleChange}
@@ -69,7 +69,7 @@ export default class ForgotPasswordSection extends Component {
                 <input 
                   type="password" 
                   id="newPassword"
-                  name="newPassword"  // FIXED: Added name attribute
+                  name="newPassword"  
                   placeholder="Enter your new password" 
                   value={newPassword}
                   onChange={this.handleChange}
@@ -79,7 +79,7 @@ export default class ForgotPasswordSection extends Component {
                 <input 
                   type="password" 
                   id="confirmPassword"
-                  name="confirmPassword"  // FIXED: Added name attribute
+                  name="confirmPassword"  
                   placeholder="Confirm your password" 
                   value={confirmPassword}
                   onChange={this.handleChange}

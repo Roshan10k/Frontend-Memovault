@@ -1,7 +1,18 @@
 body, html {
-    min-height: 100vh !important;
-    background: linear-gradient(135deg, #F4F7FC, #E8ECF5);
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    overflow-x: hidden;
 }
+
+.login-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh; 
+    overflow: hidden; 
+}
+
 
 .login-container {
     display: flex;
